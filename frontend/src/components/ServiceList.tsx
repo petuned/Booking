@@ -33,14 +33,16 @@ function ServiceList() {
             <div className="border-2 border-gray-300 p-2.5 rounded-lg">{c}</div>
           ))}
         </div>
-        {services.map((service) => (
-          <div
-            key={service}
-            className="border-2 border-gray-300 text-left my-2.5 mx-0 p-2 rounded-2xl"
-          >
-            {service}
-          </div>
-        ))}
+        <div className="border-2 border-gray-300 my-2 rounded-lg">
+          {services.map((service, i) => (
+            <div
+              key={service}
+              className={`text-left p-2 ${i !== services.length - 1 && `border-gray-300 border-b-2`}`}
+            >
+              {service}
+            </div>
+          ))}
+        </div>
         <div className="text-center">
           <button
             className="p-1 rounded-xl"
