@@ -8,7 +8,7 @@ function BusinessList() {
     "Brush & Scissors"
   ];
   return (
-    <div className="flex items-center gap-4 mr-30">
+    <div className="flex items-center gap-4 md:mr-30">
       <div className="m-2">
         <Link to="/">
           <svg

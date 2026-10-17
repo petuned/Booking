@@ -9,7 +9,7 @@ function ServiceList() {
     "Haircut & dyeing (short hair): 50€"
   ];
   return (
-    <div className="flex items-center gap-4 mr-30">
+    <div className="flex items-center gap-4 md:mr-30">
       <div className="m-2">
         <Link to="/hair">
           <svg
@@ -28,12 +28,12 @@ function ServiceList() {
       </div>
       <div>
         <h2>Services</h2>
-        <div className="flex m-auto gap-1">
+        <div className="flex flex-wrap m-auto gap-1">
           {categories.map((c) => (
-            <div className="border-2 border-gray-300 p-2.5 rounded-lg">{c}</div>
+            <div className="border-2 border-gray-400 p-2.5 rounded-lg">{c}</div>
           ))}
         </div>
-        <div className="border-2 border-gray-300 my-2 rounded-lg">
+        <div className="border-2 border-gray-400 my-2 rounded-lg">
           {services.map((service, i) => (
             <div
               key={service}
