@@ -7,9 +7,15 @@ interface Props {
   logout: Dispatch<SetStateAction<User | null>>;
 }
 
+const services = [
+  { type: "Hair Salon", title: "Hair" },
+  { type: "Beauty Salon", title: "Beauty" },
+  { type: "Massage Salon", title: "Massage" },
+  { type: "Spa", title: "Spa" }
+];
+
 function NavBar({ user, logout }: Props) {
   const [hidden, setHidden] = useState("hidden");
-  const services = ["Hair", "Spa", "Massage", "Beauty"];
 
   if (user && user.type === "Business")
     return (
@@ -41,9 +47,9 @@ function NavBar({ user, logout }: Props) {
         >
           <p>Services</p>
           <div className={`${hidden} z-50 absolute bg-white p-2`}>
-            {services.map((s) => (
-              <Link to="/hair" id={s}>
-                <div>{s}</div>
+            {services.map((service) => (
+              <Link to={`/${service.type}`} key={service.type}>
+                <div>{service.title}</div>
               </Link>
             ))}
           </div>

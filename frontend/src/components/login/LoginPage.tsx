@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from "react";
-import type { User } from "../App";
+import type { User } from "../../App";
 import { Link } from "react-router";
 
 interface Props {

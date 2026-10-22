@@ -1,7 +1,9 @@
-import ServiceTypes from "./ServiceTypes";
-
+import ServiceTypeList from "./ServiceTypeList";
+interface ServiceType {
+  type: string;
+}
 interface Props {
-  serviceTypes: Array<string>;
+  serviceTypes: Array<ServiceType>;
 }
 
 function HomePage({ serviceTypes }: Props) {
@@ -9,7 +11,7 @@ function HomePage({ serviceTypes }: Props) {
     <div className="flex flex-col gap-4 text-center items-center">
       <h1>Browse and book an appointment</h1>
       <h2>Services</h2>
-      <ServiceTypes serviceTypes={serviceTypes} />
+      <ServiceTypeList serviceTypes={serviceTypes} />
     </div>
   );
 }
