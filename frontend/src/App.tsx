@@ -1,5 +1,8 @@
 import { Route, Routes } from "react-router";
 import { useEffect, useState } from "react";
+
+import businessService from "./services/businessService";
+
 import NavBar from "./components/NavBar";
 import ServiceList from "./components/ServiceList";
 import BusinessList from "./components/BusinessList";
@@ -7,7 +10,7 @@ import LoginPage from "./components/login/LoginPage";
 import LoginForm from "./components/login/LoginForm";
 import RegistrationPage from "./components/registration/RegistrationPage";
 import HomePage from "./components/HomePage";
-import businessService from "./services/businessService";
+import PageNotFound from "./components/PageNotFound";
 
 export interface User {
   name: string;
@@ -36,8 +39,12 @@ function App() {
           <Route path="/login" element={<LoginPage loginUser={setUser} />} />
           <Route path="/loginform" element={<LoginForm />} />
           <Route path="/register" element={<RegistrationPage />} />
-          <Route path="/:businesstype" element={<BusinessList />} />
-          <Route path="/:businesstype/:business" element={<ServiceList />} />
+          <Route path="/business/:businesstype" element={<BusinessList />} />
+          <Route
+            path="/business/:businesstype/:business"
+            element={<ServiceList />}
+          />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </main>
     </>

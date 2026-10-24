@@ -21,7 +21,7 @@ function ServiceTypeList({ serviceTypes }: Props) {
   return (
     <div className="md:grid md:grid-cols-2 w-1/2">
       {filteredCategories.map((fc) => (
-        <Link to={`${fc.type}`} key={fc.type}>
+        <Link to={`/business/${fc.type}`} key={fc.type}>
           <div className="border-2 border-gray-400 rounded-xl min-w-fit m-2 md:m-1 p-4 text-center">
             {fc.title}
           </div>

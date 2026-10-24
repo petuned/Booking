@@ -37,7 +37,7 @@ function ServiceList() {
   return (
     <div className="flex items-center gap-4 md:mr-30">
       <div className="m-2">
-        <Link to={`/${businessType}`}>
+        <Link to={`/business/${businessType}`}>
           <svg
             className="size-6"
             viewBox="0 0 24 24"
@@ -55,8 +55,9 @@ function ServiceList() {
       <div>
         <h2>Services</h2>
         <div className="flex flex-wrap m-auto gap-1">
-          {categories.map((c) => (
+          {categories.map((c, i) => (
             <div
+              key={i}
               onClick={() => setSelectedCategory(c)}
               className="border-2 border-gray-400 p-2.5 rounded-lg"
             >
@@ -70,18 +71,18 @@ function ServiceList() {
               service.category == selectedCategory && (
                 <div
                   key={i}
-                  className={`text-left p-2 ${i !== services.length - 1 && `border-gray-300 border-b-2`}`}
+                  className="flex justify-between gap-2 p-2 border-gray-300 border-b-2"
                 >
-                  {service.name}
+                  <p>
+                    {service.name} ({service.duration} min)
+                  </p>
+                  <p>{service.price} €</p>
                 </div>
               )
           )}
         </div>
         <div className="text-center">
-          <button
-            className="p-1 rounded-xl"
-            style={{ padding: "4px", borderRadius: "10px", fontSize: "16px" }}
-          >
+          <button className="border-2 border-gray-400 rounded-xl py-1 px-4">
             Go to booking
           </button>
         </div>

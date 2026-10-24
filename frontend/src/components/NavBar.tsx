@@ -30,7 +30,7 @@ function NavBar({ user, logout }: Props) {
           <p>{user.name}</p>
           <button
             onClick={() => logout(null)}
-            className="border-2 rounded-xl py-1 px-4"
+            className="border-2 border-gray-400 rounded-xl py-1 px-4"
           >
             Logout
           </button>
@@ -48,7 +48,7 @@ function NavBar({ user, logout }: Props) {
           <p>Services</p>
           <div className={`${hidden} z-50 absolute bg-white p-2`}>
             {services.map((service) => (
-              <Link to={`/${service.type}`} key={service.type}>
+              <Link to={`/business/${service.type}`} key={service.type}>
                 <div>{service.title}</div>
               </Link>
             ))}
@@ -66,7 +66,7 @@ function NavBar({ user, logout }: Props) {
           <p>Hello {user.name}</p>
           <button
             onClick={() => logout(null)}
-            className="border-2 rounded-xl py-1 px-4"
+            className="border-2 border-gray-400 rounded-xl py-1 px-4"
           >
             Logout
           </button>
@@ -76,7 +76,7 @@ function NavBar({ user, logout }: Props) {
           <button>
             <Link to="/register">Register</Link>
           </button>
-          <button className="border-2 rounded-xl py-1 px-4">
+          <button className="border-2 border-gray-400 rounded-xl py-1 px-4">
             <Link to="/login">Login</Link>
           </button>
         </header>
