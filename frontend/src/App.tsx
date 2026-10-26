@@ -32,8 +32,8 @@ function App() {
 
   return (
     <>
-      <NavBar user={user} logout={setUser} />
-      <main className="flex-auto flex justify-center items-center">
+      <NavBar user={user} logout={setUser} serviceTypes={serviceTypes} />
+      <main className="flex-auto">
         <Routes>
           <Route path="/" element={<HomePage serviceTypes={serviceTypes} />} />
           <Route path="/login" element={<LoginPage loginUser={setUser} />} />

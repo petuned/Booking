@@ -2,20 +2,26 @@ import { useState, type Dispatch, type SetStateAction } from "react";
 import { Link } from "react-router";
 import type { User } from "../App";
 
+interface ServiceType {
+  type: string;
+}
 interface Props {
   user: User | null;
   logout: Dispatch<SetStateAction<User | null>>;
+  serviceTypes: Array<ServiceType>;
 }
 
-const services = [
-  { type: "Hair Salon", title: "Hair" },
-  { type: "Beauty Salon", title: "Beauty" },
-  { type: "Massage Salon", title: "Massage" },
-  { type: "Spa", title: "Spa" }
-];
-
-function NavBar({ user, logout }: Props) {
+function NavBar({ user, logout, serviceTypes }: Props) {
   const [hidden, setHidden] = useState("hidden");
+  const serviceCategories = [
+    { type: "Hair Salon", title: "Hair" },
+    { type: "Beauty Salon", title: "Beauty" },
+    { type: "Massage Salon", title: "Massage" },
+    { type: "Spa", title: "Spa" }
+  ];
+  const filteredCategories = serviceCategories.filter((category) =>
+    serviceTypes.some((service) => service.type === category.type)
+  );
 
   if (user && user.type === "Business")
     return (
@@ -47,7 +53,7 @@ function NavBar({ user, logout }: Props) {
         >
           <p>Services</p>
           <div className={`${hidden} z-50 absolute bg-white p-2`}>
-            {services.map((service) => (
+            {filteredCategories.map((service) => (
               <Link to={`/business/${service.type}`} key={service.type}>
                 <div>{service.title}</div>
               </Link>

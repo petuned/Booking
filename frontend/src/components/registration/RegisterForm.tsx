@@ -11,7 +11,7 @@ function RegisterForm({ client }: Props) {
   };
   if (client === "business") {
     return (
-      <form onSubmit={handleLogin} className="text-center pb-4">
+      <form onSubmit={handleLogin} className="text-center pb-4 md:max-w-xl">
         <h1>Register</h1>
         <div className="flex flex-col gap-2 m-4 p-6 text-left">
           <label>
@@ -48,7 +48,7 @@ function RegisterForm({ client }: Props) {
     );
   }
   return (
-    <form onSubmit={handleLogin} className="text-center pb-4">
+    <form onSubmit={handleLogin} className="text-center pb-4 md:max-w-xl">
       <h1>Register</h1>
       <div className="flex flex-col gap-2 m-4 p-6 text-left">
         <label>

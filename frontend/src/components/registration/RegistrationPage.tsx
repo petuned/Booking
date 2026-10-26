@@ -6,9 +6,9 @@ function RegistrationPage() {
     null
   );
   return (
-    <div>
+    <div className="flex justify-center items-center">
       {!registryType ? (
-        <div className="flex gap-2">
+        <div className="flex gap-2 mt-40">
           <div
             onClick={() => setRegistryType("business")}
             className="border-2 rounded-xl p-4 text-center"

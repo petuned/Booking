@@ -1,8 +1,11 @@
 import { db } from "./database.ts";
 
-// tähä pitää lisätä joku distinct
 export async function getBusinessTypes() {
-  const businessTypes = await db.selectFrom("businesses").select("type").execute();
+  const businessTypes = await db
+    .selectFrom("businesses")
+    .select("type")
+    .distinct()
+    .execute();
   return businessTypes;
 }
 
@@ -13,6 +16,15 @@ export async function getBusinessesByType(type: string) {
     .where("type", "=", type)
     .execute();
   return businesses;
+}
+
+export async function getBusinessInfo(business_id: string) {
+  const info = await db
+    .selectFrom("businesses")
+    .select(["name", "description"])
+    .where("business_id", "=", business_id)
+    .executeTakeFirst();
+  return info;
 }
 
 export async function getServicesByBusiness(business_id: string) {

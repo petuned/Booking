@@ -16,6 +16,14 @@ async function getBusinessesByType(type: string) {
   }
 }
 
+async function getBusinessInfo(business_id: string) {
+  const response = await fetch(`${baseUrl}/${business_id}`);
+  if (response.ok) {
+    const result = await response.json();
+    return result;
+  }
+}
+
 async function getServicesByBusiness(business_id: string) {
   const response = await fetch(`${baseUrl}/${business_id}/services`);
   if (response.ok) {
@@ -24,4 +32,9 @@ async function getServicesByBusiness(business_id: string) {
   }
 }
 
-export default { getServiceTypes, getBusinessesByType, getServicesByBusiness };
+export default {
+  getServiceTypes,
+  getBusinessesByType,
+  getBusinessInfo,
+  getServicesByBusiness
+};
