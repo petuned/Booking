@@ -1,7 +1,6 @@
 import ServiceTypeList from "./ServiceTypeList";
-interface ServiceType {
-  type: string;
-}
+import type { ServiceType } from "../../types";
+
 interface Props {
   serviceTypes: Array<ServiceType>;
 }

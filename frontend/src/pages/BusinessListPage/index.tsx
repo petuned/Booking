@@ -1,21 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
-import businessService from "../services/businessService";
-import BackButton from "./BackButton";
-
-interface Business {
-  business_id: string;
-  name: string;
-  type: string;
-  description: string;
-}
-
-const headings = [
-  { type: "Hair Salon", title: "Hair Salons" },
-  { type: "Beauty Salon", title: "Beauty Salons" },
-  { type: "Massage Salon", title: "Massage Salons" },
-  { type: "Spa", title: "Spas" }
-];
+import type { Business } from "../../types";
+import { headings } from "../../utils";
+import businessService from "../../services/businessService";
+import BackButton from "../../components/BackButton";
 
 function BusinessList() {
   const [businesses, setBusinesses] = useState<Array<Business>>([]);

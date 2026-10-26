@@ -1,10 +1,8 @@
 import { useState, type Dispatch, type SetStateAction } from "react";
 import { Link } from "react-router";
-import type { User } from "../App";
+import type { User, ServiceType } from "../types";
+import { serviceCategories } from "../utils";
 
-interface ServiceType {
-  type: string;
-}
 interface Props {
   user: User | null;
   logout: Dispatch<SetStateAction<User | null>>;
@@ -13,12 +11,7 @@ interface Props {
 
 function NavBar({ user, logout, serviceTypes }: Props) {
   const [hidden, setHidden] = useState("hidden");
-  const serviceCategories = [
-    { type: "Hair Salon", title: "Hair" },
-    { type: "Beauty Salon", title: "Beauty" },
-    { type: "Massage Salon", title: "Massage" },
-    { type: "Spa", title: "Spa" }
-  ];
+
   const filteredCategories = serviceCategories.filter((category) =>
     serviceTypes.some((service) => service.type === category.type)
   );

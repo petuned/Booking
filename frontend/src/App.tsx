@@ -2,20 +2,16 @@ import { Route, Routes } from "react-router";
 import { useEffect, useState } from "react";
 
 import businessService from "./services/businessService";
+import type { User } from "./types";
 
 import NavBar from "./components/NavBar";
-import ServiceList from "./components/ServiceList";
-import BusinessList from "./components/BusinessList";
-import LoginPage from "./components/login/LoginPage";
-import LoginForm from "./components/login/LoginForm";
-import RegistrationPage from "./components/registration/RegistrationPage";
-import HomePage from "./components/HomePage";
-import PageNotFound from "./components/PageNotFound";
-
-export interface User {
-  name: string;
-  type: "Customer" | "Business";
-}
+import ServiceList from "./pages/BusinessListPage/ServiceList";
+import BusinessList from "./pages/BusinessListPage";
+import LoginPage from "./pages/LoginPage";
+import LoginForm from "./pages/LoginPage/LoginForm";
+import RegistrationPage from "./pages/RegistrationPage";
+import HomePage from "./pages/HomePage";
+import PageNotFound from "./pages/NotFoundPage";
 
 function App() {
   const [user, setUser] = useState<User | null>(null);

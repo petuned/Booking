@@ -1,19 +1,12 @@
 import { Link } from "react-router";
+import type { ServiceType } from "../../types";
+import { serviceCategories } from "../../utils";
 
-interface ServiceType {
-  type: string;
-}
 interface Props {
   serviceTypes: Array<ServiceType>;
 }
 
 function ServiceTypeList({ serviceTypes }: Props) {
-  const serviceCategories = [
-    { type: "Hair Salon", title: "Hair" },
-    { type: "Beauty Salon", title: "Beauty" },
-    { type: "Massage Salon", title: "Massage" },
-    { type: "Spa", title: "Spa" }
-  ];
   const filteredCategories = serviceCategories.filter((category) =>
     serviceTypes.some((service) => service.type === category.type)
   );

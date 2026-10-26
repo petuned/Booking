@@ -1,22 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
-import businessService from "../services/businessService";
-import BackButton from "./BackButton";
-
-interface Service {
-  service_id: string;
-  business_id: string;
-  name: string;
-  category: string;
-  description: string;
-  price: number;
-  duration: number;
-}
-
-interface Info {
-  name: string;
-  description: string;
-}
+import businessService from "../../services/businessService";
+import type { Info, Service } from "../../types";
+import BackButton from "../../components/BackButton";
 
 function ServiceList() {
   const [businessInfo, setBusinessInfo] = useState<Info | null>(null);
